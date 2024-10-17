@@ -1,5 +1,9 @@
 # Playing with Web Components
 
+⚠️ This package has been made just for having fun and experimenting with Web Components.
+
+⚠️ ⚠️ This repository may use part of [Bootstrap](https://github.com/twbs/bootstrap) and [Bootstrap Italia](https://github.com/italia/bootstrap-italia) source code, modified to support SSR. These projects are used only for experimental purpouses and not intended to be released in a real library (even though this library will be packaged and released on NPM)
+
 ## Documentation
 
 ### Why web components for a design system?
