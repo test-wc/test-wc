@@ -1,2 +1,2 @@
-export { Accordion } from './accordion'
+export { Icon } from './icon'
 export { BackToTop } from './back-to-top'
