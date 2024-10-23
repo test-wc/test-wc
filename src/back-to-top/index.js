@@ -2,11 +2,14 @@ import {BaseComponent} from '../base-component';
 import onDocumentScroll from '../utils/on-document-scroll.js'
 import {html} from 'lit';
 
+import styles1 from '../../bootstrap-italia/scss/custom/_back-to-top.scss'
 
 const CLASS_NAME_SHOW = 'back-to-top-show'
 const CLASS_NAME = 'back-to-top'
 
 export class BackToTop extends BaseComponent {
+
+  static styles = [styles1]
 
   // Declare reactive properties
   static properties = {
