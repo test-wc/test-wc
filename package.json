@@ -18,5 +18,9 @@
     "rollup-plugin-summary": "^2.0.1",
     "typescript": "^5.6.3",
     "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-lit-css": "^5.0.1",
+    "rollup-plugin-scss-lit": "^2.0.1"
   }
 }
