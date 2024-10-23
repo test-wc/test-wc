@@ -1,9 +1,8 @@
-import {LitElement, html} from 'lit';
+import {BaseComponent} from '../base-component';
+import {html} from 'lit';
 
 
-export class Button extends LitElement {
-
-  static shadowRootOptions = {...LitElement.shadowRootOptions, mode: "open"};
+export class Button extends BaseComponent {
 
   // Declare reactive properties
   static properties = {

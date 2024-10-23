@@ -1,10 +1,12 @@
-import {LitElement, html} from 'lit';
+import {BaseComponent} from '../base-component';
 import onDocumentScroll from '../utils/on-document-scroll.js'
+import {html} from 'lit';
+
 
 const CLASS_NAME_SHOW = 'back-to-top-show'
 const CLASS_NAME = 'back-to-top'
 
-export class BackToTop extends LitElement {
+export class BackToTop extends BaseComponent {
 
   // Declare reactive properties
   static properties = {
@@ -49,10 +51,6 @@ export class BackToTop extends LitElement {
         this._element.classList.remove(CLASS_NAME_SHOW)
       }
     }
-  }
-
-  createRenderRoot() {
-    return this;
   }
 }
 

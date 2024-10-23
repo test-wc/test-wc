@@ -1,8 +1,8 @@
-import {LitElement, html} from 'lit';
+import {BaseComponent} from '../base-component';
 import InputLabel from '../utils/input-label'
+import {html} from 'lit';
 
-
-export class Input extends LitElement {
+export class Input extends BaseComponent {
 
   // Declare reactive properties
   static properties = {
@@ -24,10 +24,7 @@ export class Input extends LitElement {
       </div>
     `;
   }
-
-  createRenderRoot() {
-    return this;
-  }
+  
 }
 
 customElements.define('bsi-input', Input);
