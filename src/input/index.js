@@ -2,7 +2,12 @@ import {BaseComponent} from '../base-component';
 import InputLabel from '../utils/input-label'
 import {html} from 'lit';
 
+import styles from './main.scss'
+
+
 export class Input extends BaseComponent {
+
+  static styles = styles
 
   // Declare reactive properties
   static properties = {
@@ -12,7 +17,7 @@ export class Input extends BaseComponent {
   };
 
   firstUpdated() {
-    this._label = new InputLabel(this.renderRoot.querySelector(`input`));
+    this._label = new InputLabel(this.renderRoot.querySelector(`input`), this.renderRoot);
   }
 
   // Render the UI as a function of component state

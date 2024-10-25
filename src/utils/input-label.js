@@ -5,14 +5,15 @@ const EVENT_CHANGE = `change`
 const CLASS_NAME_ACTIVE = 'active'
 
 class InputLabel {
-  constructor(element) {
+  constructor(element, root) {
     this._element = element
+    this._root = root
     this._init()
   }
 
   static getInputFromLabel = (labelElement) => {
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      return document.querySelector('#' + CSS.escape(labelElement.getAttribute('for')))
+      return this._root.querySelector('#' + CSS.escape(labelElement.getAttribute('for')))
     }
   }
 
@@ -54,7 +55,7 @@ class InputLabel {
   }
 
   _getLabel() {
-    return document.querySelector('label[for="' + this._element.getAttribute('id') + '"]')
+    return this._root.querySelector('label[for="' + this._element.getAttribute('id') + '"]')
   }
 
   _isEmpty() {
