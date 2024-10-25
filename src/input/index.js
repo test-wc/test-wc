@@ -13,8 +13,13 @@ export class Input extends BaseComponent {
   static properties = {
     id: '',
     label: '',
-    type: 'text'
+    type: {type: String}
   };
+
+  constructor () {
+    super()
+    this.type = 'text'
+  }
 
   firstUpdated() {
     this._label = new InputLabel(this.renderRoot.querySelector(`input`), this.renderRoot);
