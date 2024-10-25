@@ -6,3 +6,31 @@
 @import '../bootstrap-italia/scss/variables';
 @import '../bootstrap/scss/mixins';
 @import '../bootstrap-italia/scss/custom/back-to-top';
+
+// GLUE CODE NEEDED: icon is a custom element here (bsi-icon)
+
+.back-to-top {
+    //caret
+    bsi-icon {
+      margin: 0;
+      position: relative;
+      transform: scale(0.75);
+      top: 4px;
+      &:before {
+        margin: 0;
+        color: $white;
+      }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    /*back to top*/
+    .back-to-top {
+      width: 56px;
+      height: 56px;
+      bsi-icon {
+        transform: scale(1);
+        top: 10px;
+      }
+    }
+}
