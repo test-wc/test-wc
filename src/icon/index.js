@@ -4,7 +4,11 @@ import {html} from 'lit';
 const CLASS_NAME_SHOW = 'back-to-top-show'
 const CLASS_NAME = 'back-to-top'
 
+import styles from './main.scss'
+
 export class Icon extends BaseComponent {
+
+  static styles = styles
 
   // Declare reactive properties
   static properties = {
