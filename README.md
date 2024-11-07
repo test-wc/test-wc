@@ -1,10 +1,50 @@
 # Playing with Web Components
 
-⚠️ This package has been made just for having fun and experimenting with Web Components.
+This package has been made just for having fun and experimenting with Web Components and Italian Design System. This repository aims to recreate reusable elements following the Italian Design system's guidelines.
 
-⚠️ ⚠️ This repository may use part of [Bootstrap](https://github.com/twbs/bootstrap) and [Bootstrap Italia](https://github.com/italia/bootstrap-italia) source code, modified to support SSR. These projects are used only for experimental purpouses and not intended to be released in a real library (even though this library will be packaged and released on NPM)
+⚠️ This repository may use part of [Bootstrap](https://github.com/twbs/bootstrap) and [Bootstrap Italia](https://github.com/italia/bootstrap-italia) source code, modified to support SSR. These projects are used only for experimental purpouses and not intended to be released in a real library (even though this library will be packaged and released on NPM to test packaging and distribution).
 
-## Documentation
+## Summary
+
+- [Quick start](#quick-start)
+- [Structure of this repository](#structure-of-this-repository)
+- [Motivation](#motivation)
+- [Sources](#sources)
+
+## Quick start
+
+This repository is a collection of Web Components based on [Bootstrap Italia](https://github.com/italia/bootstrap-italia). To quickly start playing with this project install dependencies on your computer with
+
+```sh
+npm i
+```
+
+and build the library
+
+```sh
+npm run build
+```
+
+The final bundle will be compiled in the `dist` folder.
+
+## Structure of this repository
+
+### Code organization
+
+The main code of this library lies in `src` folder. Each component has its own
+folder containing a `.js` and a `.scss` file which respectively contain the 
+component's functionality and its style.
+
+Globally we define a global style (`src/global.scss`) and the import of our
+web components (`src/index.js`).
+
+### SASS styling
+
+Styling web components can be tricky because shadow DOM provides a strong encapsulation
+of the styles. Despite some styles can pierce shadow DOM ([Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)) we need to rethink the whole
+CSS using `Custom CSS properties`.
+
+## Motivation
 
 ### Why web components for a design system?
 
@@ -16,23 +56,10 @@ Think of Web Components as the essential building blocks for web development. Th
 
 Framework ecosystems manage much broader application concerns: handling state, routing, data flow, and UI updates.
 
-### Sources
+## Sources
 
 - [Auro design system](https://auro.alaskaair.com/)
 - [State of California Design system](https://designsystem.webstandards.ca.gov/) - [GitHub](https://github.com/cagov/design-system)
 - [WC Adoption challenges 2024](https://uploadcare.com/blog/web-components-adoption-challenges/)
 - [Lit TS starter kit](https://github.com/lit/lit-element-starter-ts)
-
-## Development
-
-### Install dependencies
-
-```
-npm i
-```
-
-### Building the library
-
-```
-npm run build
-```
+- [Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)
