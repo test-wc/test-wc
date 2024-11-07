@@ -9,7 +9,9 @@ import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { litScss } from 'rollup-plugin-scss-lit';
-import litcss from 'rollup-plugin-lit-css';
+import sass from 'rollup-plugin-sass';
+
+const GLOBAL_STYLESHEETS = ['**/global.scss']
 
 export default {
   input: 'src/index.js',
@@ -42,9 +44,13 @@ export default {
     litScss({
       // include: ['**/*.css'],
       minify: process.env.NODE_ENV === 'production',
-      options: { loadPaths: ['node_modules'] }
+      options: { loadPaths: ['node_modules'] },
+      exclude: GLOBAL_STYLESHEETS
     }),
-    // litcss(),
+    sass({
+      output: 'dist/global.css',
+      include: GLOBAL_STYLESHEETS
+    }),
     summary(),
   ],
 };
