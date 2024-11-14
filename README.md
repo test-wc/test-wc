@@ -63,3 +63,4 @@ Framework ecosystems manage much broader application concerns: handling state, r
 - [WC Adoption challenges 2024](https://uploadcare.com/blog/web-components-adoption-challenges/)
 - [Lit TS starter kit](https://github.com/lit/lit-element-starter-ts)
 - [Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)
+- [Where web components shine](https://daverupert.com/2024/10/super-web-components-sunshine)
