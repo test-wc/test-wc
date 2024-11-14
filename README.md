@@ -19,7 +19,17 @@ This repository is a collection of Web Components based on [Bootstrap Italia](ht
 npm i
 ```
 
-and build the library
+### Serve the app
+
+To serve the app
+
+```sh
+npm run serve
+```
+
+### Build
+
+To build the library
 
 ```sh
 npm run build
