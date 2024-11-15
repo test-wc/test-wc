@@ -60,11 +60,9 @@ CSS using `Custom CSS properties`.
 
 Enforcing a consistent set of design standards across teams and projects is much more challenging if you’re part of a larger organization— especially one with many distributed teams and concurrent projects, or hundreds of developers and designers. The problem is amplified when you consider the diversity of technologies and frameworks in use in most enterprises today, which makes it challenging to find a single approach that works for everyone on the team. One way to solve it is by building and implementing a design system using highly customizable, framework-agnostic Web Components!
 
-### Web components VS Frameworks
+### Web components and Frameworks
 
-Think of Web Components as the essential building blocks for web development. They allow you to create reusable custom elements that combine HTML, CSS, and JavaScript into a cohesive unit. That’s it — simple, powerful, and focused. 
-
-Framework ecosystems manage much broader application concerns: handling state, routing, data flow, and UI updates.
+Think of Web Components as the essential building blocks for web development. They allow you to create reusable custom elements that combine HTML, CSS, and JavaScript into a cohesive unit. That’s it — simple, powerful, and focused. Framework ecosystems manage much broader application concerns: handling state, routing, data flow, and UI updates. Web components can be integrated within framwork based applications, [here's a list of missing features/bug to use custom elements inside frameworks](https://custom-elements-everywhere.com/).
 
 ## Sources
 
