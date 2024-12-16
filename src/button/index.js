@@ -34,6 +34,17 @@ export class Button extends BaseComponent {
     );
   }
 
+  updated() {
+    this._buttonClasses = this._composeClass(
+      "btn",
+      this.outline ? "" : this.variant !== "" ? `btn-${this.variant}` : "",
+      this.outline
+        ? `${this.outline ? "btn-outline-" : ""}${this.variant}`
+        : "",
+      this.disabled ? "disabled" : ""
+    );
+  }
+
   // Render the UI as a function of component state
   render() {
     return html`
