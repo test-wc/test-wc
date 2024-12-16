@@ -1,10 +1,13 @@
 import { BaseComponent } from "../base-component";
 import { html } from "lit";
-
+import { ifDefined } from "lit/directives/if-defined.js";
 import styles from "./main.scss";
 
 export class Button extends BaseComponent {
   static styles = styles;
+  static get formAssociated() {
+    return true;
+  }
 
   // Declare reactive properties
   static properties = {
@@ -13,6 +16,7 @@ export class Button extends BaseComponent {
     _buttonClasses: { type: String },
     outline: { type: Boolean },
     disabled: { type: Boolean },
+    value: { type: String, reflect: true },
   };
 
   constructor() {
@@ -21,6 +25,8 @@ export class Button extends BaseComponent {
     this.variant = "";
     this.outline = false;
     this.disabled = false;
+    this.value = undefined;
+    this.internals = this.attachInternals();
   }
 
   firstUpdated() {
@@ -32,6 +38,13 @@ export class Button extends BaseComponent {
         : "",
       this.disabled ? "disabled" : ""
     );
+    const {
+      internals: { form },
+    } = this;
+    console.log(form);
+    this.renderRoot
+      .querySelector("button")
+      .addEventListener("submit", () => form.requestSubmit());
   }
 
   updated() {
@@ -48,7 +61,12 @@ export class Button extends BaseComponent {
   // Render the UI as a function of component state
   render() {
     return html`
-      <button type="${this.type}" class="${this._buttonClasses}">
+      <button
+        type="${this.type}"
+        class="${this._buttonClasses}"
+        @click="${ifDefined(() => {})}"
+        .value="${ifDefined(this.value ? this.value : undefined)}"
+      >
         <slot></slot>
       </button>
     `;

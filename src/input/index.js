@@ -13,6 +13,7 @@ export class Input extends BaseComponent {
     label: "",
     type: { type: String },
     value: { type: String },
+    name: { type: String },
   };
 
   constructor() {
@@ -73,6 +74,7 @@ export class Input extends BaseComponent {
           type="${this.type}"
           class="form-control"
           id="${this.id}"
+          name="${this.name}"
         />
       </div>
     `;
