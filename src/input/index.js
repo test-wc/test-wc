@@ -7,6 +7,10 @@ import styles from "./main.scss";
 export class Input extends BaseComponent {
   static styles = styles;
 
+  static get formAssociated() {
+    return true;
+  }
+
   // Declare reactive properties
   static properties = {
     id: "",
@@ -19,22 +23,19 @@ export class Input extends BaseComponent {
   constructor() {
     super();
     this.type = "text";
+    this.internals = this.attachInternals();
+    this.value = ''
   }
 
   updated(changedProperties) {
     if (changedProperties.has("value")) {
-      if (this.value && this.value.length > 0) {
-        this.requestUpdate();
-      } else {
-        this.requestUpdate();
-      }
+      this.internals.setFormValue(this._inputElement.value);
       if (this.value !== this._inputElement.value) {
         if (this.value) {
           this._inputElement.value = this.value;
         } else {
           this._inputElement.value = "";
         }
-
         this.notifyValueChanged();
       }
     }
@@ -42,11 +43,11 @@ export class Input extends BaseComponent {
 
   notifyValueChanged() {
     let inputEvent = null;
-
     inputEvent = new Event("input", {
       bubbles: true,
       composed: true,
     });
+
 
     // Dispatched event to alert outside shadow DOM context of event firing.
     this.dispatchEvent(inputEvent);

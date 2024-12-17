@@ -41,10 +41,11 @@ export class Button extends BaseComponent {
     const {
       internals: { form },
     } = this;
-    console.log(form);
-    this.renderRoot
-      .querySelector("button")
-      .addEventListener("submit", () => form.requestSubmit());
+    if (this.type === 'submit') {
+      this.renderRoot
+        .querySelector("button")
+        .addEventListener("click", () => form.requestSubmit());
+    }
   }
 
   updated() {

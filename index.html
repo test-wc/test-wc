@@ -10,14 +10,23 @@
 
   <body>
     <div id="Translation">
-      <h1>Translated article</h1>
-      <form action="/form" method="get">
+      <h1>WC Form</h1>
+      <form action="/" method="get">
         <bsi-input
-          id="exampleInputText"
+          id="name"
           name="name"
-          label="Inserisci il tuo nome"
+          label="Inserisci il tuo nome",
         ></bsi-input>
-        <bsi-button variant="primary">Send</bsi-button>
+        <bsi-button type="submit" variant="primary">Send</bsi-button>
+      </form>
+      <h1>Normal Form</h1>
+      <form action="/" method="get">
+        <input
+          id="name"
+          name="name"
+          label="Inserisci il tuo nome",
+        />
+        <button type="submit" variant="primary">Send</button>
       </form>
       <div class="p-3">
         <bsi-input
