@@ -1,12 +1,6 @@
-@import '../bootstrap/scss/functions';
-@import '../bootstrap/scss/variables';
-@import '../bootstrap-italia/scss/functions';
-@import '../bootstrap-italia/scss/utilities/colors_vars';
-@import '../bootstrap-italia/scss/utilities/colors';
-@import '../bootstrap-italia/scss/variables';
-@import '../bootstrap/scss/mixins';
-@import '../bootstrap-italia/scss/utilities/focus';
+@import 'bootstrap-italia/src/scss/base/functions';
+@import 'bootstrap-italia/src/scss/base/variables';
+@import 'bootstrap-italia/src/scss/base/mixins';
+@import 'bootstrap-italia/src/scss/utilities/focus';
 
-@import '../bootstrap-italia/scss/custom/mixins/buttons';
-@import '../bootstrap/scss/buttons';
-@import '../bootstrap-italia/scss/custom/buttons';
+@import 'bootstrap-italia/src/scss/components/buttons';
