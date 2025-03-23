@@ -9,6 +9,8 @@
 const DATA_MOUSE_FOCUS = 'data-focus-mouse'
 
 class TrackFocus {
+  private _usingMouse: boolean
+
   constructor() {
     this._usingMouse = false
     this._bindEvents()
@@ -28,24 +30,16 @@ class TrackFocus {
     document.addEventListener('focusin', (evt) => {
       if (this._usingMouse) {
         if (evt.target) {
-          evt.target.setAttribute(DATA_MOUSE_FOCUS, true)
+          (<HTMLElement>evt.target).setAttribute(DATA_MOUSE_FOCUS, "true")
         }
       }
     })
     document.addEventListener('focusout', (evt) => {
       if (evt.target) {
-        evt.target.setAttribute(DATA_MOUSE_FOCUS, false)
+        (<HTMLElement>evt.target).setAttribute(DATA_MOUSE_FOCUS, "false")
       }
     })
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation
- * ------------------------------------------------------------------------
- */
-
-new TrackFocus()
 
 export default TrackFocus
