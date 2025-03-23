@@ -23,5 +23,8 @@
     "rollup-plugin-summary": "^2.0.1",
     "typescript": "^5.6.3",
     "uuid": "^10.0.0"
+  },
+  "dependencies": {
+    "bootstrap-italia": "^2.14.0"
   }
 }

@@ -1,13 +1,9 @@
-@import '../bootstrap/scss/functions';
-@import '../bootstrap/scss/variables';
-@import '../bootstrap-italia/scss/functions';
-@import '../bootstrap-italia/scss/utilities/colors_vars';
-@import '../bootstrap-italia/scss/utilities/colors';
-@import '../bootstrap-italia/scss/variables';
-@import '../bootstrap/scss/mixins';
-@import '../bootstrap-italia/scss/utilities/focus';
+@import 'bootstrap-italia/src/scss/base/functions';
+@import 'bootstrap-italia/src/scss/base/variables';
+@import 'bootstrap-italia/src/scss/base/mixins';
+@import 'bootstrap-italia/src/scss/utilities/focus';
 
-@import '../bootstrap-italia/scss/custom/back-to-top';
+@import 'bootstrap-italia/src/scss/components/back-to-top';
 
 // GLUE CODE NEEDED: icon is a custom element here (bsi-icon)
 
