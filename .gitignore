@@ -57,3 +57,8 @@ changelog.txt
 # Ignore cache file from linters
 .eslintcache
 .stylelintcache
+
+*storybook.log
+
+
+__stories
