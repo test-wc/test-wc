@@ -1,9 +1,9 @@
-import { BaseComponent } from "../base-component/index";
-import { html } from "lit";
+import { BaseComponent } from "../base-component/base-component";
+import { html, PropertyValues } from "lit";
 import { customElement, property } from 'lit/decorators.js'
 import { ifDefined } from "lit/directives/if-defined.js";
 
-import styles from "./main.scss?inline";
+import styles from "./button.scss?inline";
 
 @customElement('bsi-button')
 export class Button extends BaseComponent(styles) {
@@ -33,8 +33,15 @@ export class Button extends BaseComponent(styles) {
   @property({ type: ElementInternals })
   internals = this.attachInternals()
 
+  protected override firstUpdated(_changedProperties: PropertyValues): void {
+    const button = this.renderRoot.querySelector('button')
+    if (button) {
+      this.addFocus(button)
+    }
+  }
+
   override updated() {
-    this._buttonClasses = this._composeClass(
+    this._buttonClasses = this.composeClass(
       "btn",
       this.outline ? "" : this.variant !== "" ? `btn-${this.variant}` : "",
       this.outline

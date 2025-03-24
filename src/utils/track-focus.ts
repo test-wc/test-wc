@@ -10,31 +10,33 @@ const DATA_MOUSE_FOCUS = 'data-focus-mouse'
 
 class TrackFocus {
   private _usingMouse: boolean
+  private _element: HTMLElement;
 
-  constructor() {
+  constructor(element: HTMLElement) {
     this._usingMouse = false
+    this._element = element
     this._bindEvents()
   }
 
   // Private
   _bindEvents() {
-    if (typeof document === 'undefined') {
+    if (typeof this._element === 'undefined') {
       return
     }
     const events = ['keydown', 'mousedown']
     events.forEach((evtName) => {
-      document.addEventListener(evtName, (evt) => {
+      this._element.addEventListener(evtName, (evt) => {
         this._usingMouse = evt.type === 'mousedown'
       })
     })
-    document.addEventListener('focusin', (evt) => {
+    this._element.addEventListener('focusin', (evt) => {
       if (this._usingMouse) {
         if (evt.target) {
           (<HTMLElement>evt.target).setAttribute(DATA_MOUSE_FOCUS, "true")
         }
       }
     })
-    document.addEventListener('focusout', (evt) => {
+    this._element.addEventListener('focusout', (evt) => {
       if (evt.target) {
         (<HTMLElement>evt.target).setAttribute(DATA_MOUSE_FOCUS, "false")
       }
