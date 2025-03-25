@@ -7,6 +7,21 @@ import sass from 'rollup-plugin-sass';
 
 const GLOBAL_STYLESHEETS = ['**/global.scss']
 
+const removeInline = () => {
+  return {
+    name: 'remove-inline-params',
+    resolveId(source) {
+      // Remove inline parameter-like strings from scss
+      const cleanSource = source.replace(/\?inline$/, '');  
+      console.log('-------')
+      console.log(source)
+      console.log(cleanSource) 
+      console.log('-------')
+      return cleanSource;
+    }
+  };
+}
+
 export default {
   input: 'src/index.js',
   output: {
@@ -19,6 +34,7 @@ export default {
     }
   },
   plugins: [
+    removeInline(),
     replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({

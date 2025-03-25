@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import "./button"
+import './button'
 
 interface ButtonPros {
   variant: string,
