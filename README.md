@@ -24,7 +24,7 @@ npm i
 To serve the app
 
 ```sh
-npm run serve
+npm run dev
 ```
 
 ### Build
@@ -32,7 +32,7 @@ npm run serve
 To build the library
 
 ```sh
-npm run build
+npm run build:lib
 ```
 
 The final bundle will be compiled in the `dist` folder.
@@ -41,18 +41,21 @@ The final bundle will be compiled in the `dist` folder.
 
 ### Code organization
 
-The main code of this library lies in `src` folder. Each component has its own
-folder containing a `.js` and a `.scss` file which respectively contain the 
-component's functionality and its style.
+The main code of this library lies in `src` folder. 
 
-Globally we define a global style (`src/global.scss`) and the import of our
-web components (`src/index.js`).
+Each component has its own folder containing 
+
+- `{component-name}.ts` component's definition and functionality
+- `{component-name}.scss` component's style.
+- `{component-name}.stories.ts` component's stories for Storybook documentation
+- `{component-name}.spec.ts` component's tests
 
 ### SASS styling
 
-Styling web components can be tricky because shadow DOM provides a strong encapsulation
-of the styles. Despite some styles can pierce shadow DOM ([Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)) we need to rethink the whole
-CSS using `Custom CSS properties`.
+Styling web components can be tricky because shadow DOM provides a strong 
+encapsulation of the styles. Despite some styles can pierce 
+shadow DOM ([Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)) we need to rethink the whole CSS 
+using `Custom CSS properties`.
 
 ## Motivation
 
