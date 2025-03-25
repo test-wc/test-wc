@@ -1,7 +1,7 @@
 import { BaseComponent } from "../base-component/base-component";
 import { html } from "lit";
 import { customElement, property } from 'lit/decorators.js'
-import {unsafeHTML} from 'lit/directives/unsafe-html.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 
 import { ICONS_LIST } from "./icons";
 
@@ -23,7 +23,7 @@ export class Icon extends BaseComponent(styles) {
   override render() {
     return html`
       <svg class="icon icon-${this.type} ${this.background ? 'bg-' + this.background : ''}">
-        ${unsafeHTML(ICONS_LIST[this.name])}
+        ${unsafeSVG(ICONS_LIST[this.name])}
       </svg>
     `;
   }
