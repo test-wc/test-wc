@@ -3,7 +3,7 @@ import { html, PropertyValues } from "lit";
 import { customElement, property } from 'lit/decorators.js'
 import { ifDefined } from "lit/directives/if-defined.js";
 
-import styles from "./button.scss?inline";
+import styles from "./button.module.scss";
 
 @customElement('bsi-button')
 export class Button extends BaseComponent(styles) {
@@ -51,13 +51,25 @@ export class Button extends BaseComponent(styles) {
     );
   }
 
+  surfaceSubmitEvent(event: any) {
+    if (this.form) {
+      event.preventDefault()
+      event.stopPropagation()
+      this.form.requestSubmit();
+    }
+  }
+
+  get form() {
+    return this.internals ? this.internals.form : null;
+  }
+
   // Render the UI as a function of component state
   override render() {
     return html`
       <button
         type="${this.type}"
         class="${this._buttonClasses}"
-        @click="${ifDefined(() => {})}"
+        @click="${this.type === 'submit' ? this.surfaceSubmitEvent : undefined}"
         .value="${ifDefined(this.value ? this.value : undefined)}"
       >
         <slot></slot>

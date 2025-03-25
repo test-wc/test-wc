@@ -62,3 +62,9 @@ changelog.txt
 
 
 __stories
+
+
+# Compiled JS files
+
+src/**/*.js
+src/**/*.map
