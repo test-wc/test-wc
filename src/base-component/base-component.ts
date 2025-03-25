@@ -4,7 +4,7 @@ import TrackFocus from '../utils/track-focus'
 export const BaseComponent = (style: any) => {
   return class extends LitElement {
 
-    static styles = [unsafeCSS(style)];
+    static override styles = [unsafeCSS(style)];
 
     protected addFocus(element: HTMLElement) {
       new TrackFocus(element)

@@ -1,5 +1,5 @@
 import { BaseComponent } from "../base-component/base-component";
-import { html, PropertyValues } from "lit";
+import { html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
 import styles from "./input.module.scss";
@@ -13,9 +13,6 @@ export class Input extends BaseComponent(styles) {
   // static get formAssociated() {
   //   return true;
   // }
-
-  @property({ type: String })
-  id = '';
 
   @property({ type: String })
   label = '';
@@ -102,7 +99,7 @@ export class Input extends BaseComponent(styles) {
     }
   }
 
-  firstUpdated() {
+  override firstUpdated() {
     this.addFocus(this._inputElement)
     console.log("will load")
     // this.internals.setFormValue("a default value");
@@ -115,7 +112,7 @@ export class Input extends BaseComponent(styles) {
   }
 
   // Render the UI as a function of component state
-  render() {
+  override render() {
     return html`
       <div class="form-group">
         <input

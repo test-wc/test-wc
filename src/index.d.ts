@@ -1,3 +1,0 @@
-export { Button } from './button/button';
-export { Input } from './input/input';
-//# sourceMappingURL=index.d.ts.map

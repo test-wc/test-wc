@@ -7,8 +7,6 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
     "outDir": "./src",
@@ -31,9 +29,9 @@
         "strict": true
       }
     ],
-    "types": [
-      "mocha"
-    ]
+    // "types": [
+    //   "mocha"
+    // ]
   },
   "include": [
     "src/**/*.ts",
