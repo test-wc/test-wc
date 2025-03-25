@@ -68,6 +68,7 @@ export class Button extends BaseComponent(styles) {
     return html`
       <button
         type="${this.type}"
+        disabled=${ifDefined(this.disabled || undefined)}
         class="${this._buttonClasses}"
         @click="${this.type === 'submit' ? this.surfaceSubmitEvent : undefined}"
         .value="${ifDefined(this.value ? this.value : undefined)}"
