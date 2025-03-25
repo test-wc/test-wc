@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
     "build": "tsc && rollup -c",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -31,7 +30,6 @@
     "rollup-plugin-summary": "^3.0.0",
     "sass": "^1.86.0",
     "storybook": "^8.6.8",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.2"
+    "typescript": "~5.7.2"
   }
 }
