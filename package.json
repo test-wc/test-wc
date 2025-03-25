@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
-    "build": "tsc && rollup -c",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "build:clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
+    "build:lib": "tsc && rollup -c",
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "bootstrap-italia": "^2.14.0",
