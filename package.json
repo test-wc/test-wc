@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "prepare-lib": "recursive-copy -w ./node_modules/bootstrap-italia/src/svg/ ./assets/svg/ && recursive-copy -w ./node_modules/bootstrap-italia/dist/fonts/ ./assets/fonts/",
+    "generate-icons": "node ./scripts/generate-icon-list.js",
+    
     "dev": "concurrently -k -r \"npm run build:watch\" \"npm run docs:serve\"",
     "build:storybook": "storybook build",
     "build:clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
