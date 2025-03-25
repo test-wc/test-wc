@@ -2,7 +2,7 @@ import { BaseComponent } from "../base-component/base-component";
 import { html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
-import styles from "./input.module.scss";
+import styles from "./input.scss?inline";
 
 @customElement('bsi-input')
 export class Input extends BaseComponent(styles) {

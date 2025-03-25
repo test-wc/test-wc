@@ -8,7 +8,10 @@ export const BaseComponent = (style: any) => {
 
     protected addFocus(element: HTMLElement) {
       new TrackFocus(element)
+      console.log("STYLE")
       console.log(style)
+      console.log("UNSAFE")
+
       console.log(unsafeCSS(style))
     }
 

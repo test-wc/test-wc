@@ -3,7 +3,7 @@ import { html, PropertyValues } from "lit";
 import { customElement, property } from 'lit/decorators.js'
 import { ifDefined } from "lit/directives/if-defined.js";
 
-import styles from "./button.module.scss";
+import styles from "./button.scss?inline";
 
 @customElement('bsi-button')
 export class Button extends BaseComponent(styles) {
