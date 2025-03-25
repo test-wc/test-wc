@@ -43,7 +43,6 @@ export class Input extends BaseComponent(styles) {
     const oldValue = this._value;
     this._value = value;
     // make sure that lit-element updates the right properties
-    console.log(oldValue)
     this.requestUpdate('value', oldValue);
     // we set the value directly on the input (when available)
     // so that programatic manipulation updates the UI correctly
@@ -56,18 +55,13 @@ export class Input extends BaseComponent(styles) {
     // Add our name and value to the form's submission 
     // data if we're not disabled.
     const { formData } = event;
-
     formData.append(this.name, this._value);
-    console.log(this.name)
-    console.log(this._value)
-    console.log("DATAAAA")
   }
 
 
   // updated(_changedProperties: PropertyValues) {
   //   if (_changedProperties.has("value")) {
   //     this.internals.setFormValue(this.name, this.value);
-  //     console.log(this.internals)
   //     this.notifyValueChanged();
 
   //     // if (this.value !== this._inputElement.value) {
@@ -93,7 +87,6 @@ export class Input extends BaseComponent(styles) {
 
   override connectedCallback() {
     super.connectedCallback();
-    console.log("CONNECTED")
     if (this.closest('form')) {
       this.closest('form')?.addEventListener('formdata', this._handleFormData.bind(this));
     }
@@ -101,14 +94,12 @@ export class Input extends BaseComponent(styles) {
 
   override firstUpdated() {
     this.addFocus(this._inputElement)
-    console.log("will load")
     // this.internals.setFormValue("a default value");
   }
 
   handleInput(event: any) {
     this.value = event.target.value
     // this.internals.setFormValue(event.target.value);
-    // console.log(this.internals.form?.length)
   }
 
   // Render the UI as a function of component state

@@ -10,7 +10,6 @@ interface ButtonPros {
 }
 
 const renderComponent = (params: any) => {
-  console.log(params)
   return `
     <bsi-button 
       variant="${params.variant}"
