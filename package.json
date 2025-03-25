@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "dev": "concurrently -k -r \"npm run build:watch\" \"npm run docs:serve\"",
     "build:storybook": "storybook build",
     "build:clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
-    "build:lib": "tsc && rollup -c",
+    "build:lib": "npm run build:clean && tsc && rollup -c",
+    "build:watch": "concurrently -k -r \"tsc --watch\" \"rollup -c rollup.config.js --watch\"",
     "docs:clean": "rm -rf storybook-static",
     "docs:serve": "storybook dev -p 6006"
   },
@@ -24,6 +26,7 @@
     "@storybook/test": "^8.6.8",
     "@storybook/web-components": "^8.6.8",
     "@storybook/web-components-vite": "^8.6.8",
+    "concurrently": "^9.1.2",
     "rollup": "^4.37.0",
     "rollup-plugin-lit-css": "^5.0.2",
     "rollup-plugin-sass": "^1.15.2",

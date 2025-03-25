@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 
-import './input';
-
 interface InputPros {
 
 }
