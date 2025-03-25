@@ -30,7 +30,7 @@
     "rollup-plugin-scss-lit": "^2.1.0",
     "rollup-plugin-summary": "^3.0.0",
     "sass": "^1.86.0",
-    "storybook": "^8.6.8",
+    "storybook": "^8.6.9",
     "typescript": "~5.7.2"
   }
 }
