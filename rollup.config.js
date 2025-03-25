@@ -4,23 +4,9 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { litScss } from 'rollup-plugin-scss-lit';
 import sass from 'rollup-plugin-sass';
+import alias from '@rollup/plugin-alias';
 
 const GLOBAL_STYLESHEETS = ['**/global.scss']
-
-const removeInline = () => {
-  return {
-    name: 'remove-inline-params',
-    resolveId(source) {
-      // Remove inline parameter-like strings from scss
-      const cleanSource = source.replace(/\?inline$/, '');  
-      console.log('-------')
-      console.log(source)
-      console.log(cleanSource) 
-      console.log('-------')
-      return cleanSource;
-    }
-  };
-}
 
 export default {
   input: 'src/index.js',
@@ -34,7 +20,13 @@ export default {
     }
   },
   plugins: [
-    removeInline(),
+    alias(
+      {
+        entries: [
+          { find: /\?inline$/, replacement: '' }
+        ]
+      }
+    ),
     replace({preventAssignment: false, 'Reflect.decorate': 'undefined'}),
     resolve(),
     terser({
@@ -48,7 +40,7 @@ export default {
       },
     }),
     litScss({
-      // include: ['**/*.css'],
+      include: ['**/*.scss'],
       minify: process.env.NODE_ENV === 'production',
       options: { loadPaths: ['node_modules'] },
       exclude: GLOBAL_STYLESHEETS
