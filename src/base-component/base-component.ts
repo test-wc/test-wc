@@ -1,5 +1,5 @@
 import {LitElement, unsafeCSS} from 'lit';
-import TrackFocus from '../utils/track-focus.ts'
+import TrackFocus from '../utils/track-focus'
 
 export const BaseComponent = (style: any) => {
   return class extends LitElement {
