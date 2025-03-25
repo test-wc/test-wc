@@ -5,7 +5,6 @@ interface InputPros {
 }
 
 const renderComponent = (params: any) => {
-  console.log(params)
   return `
     <bsi-input label="La mia label"></bsi-input>
   `

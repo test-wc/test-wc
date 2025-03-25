@@ -38,5 +38,6 @@
     "src/**/*.ts",
     "typings.d.ts"
   ],
+  "exclude": ["**/*.stories.ts", "**/*.test.ts"]
 
 }
