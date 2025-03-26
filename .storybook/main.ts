@@ -13,6 +13,8 @@ const config: StorybookConfig = {
   "framework": {
     "name": "@storybook/web-components-vite",
     "options": {}
-  }
+  },
+  staticDirs: ['../assets'],
+
 };
 export default config;
