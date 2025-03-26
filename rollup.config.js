@@ -3,9 +3,7 @@ import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import { litScss } from 'rollup-plugin-scss-lit';
-import sass from 'rollup-plugin-sass';
 import alias from '@rollup/plugin-alias';
-import multi from '@rollup/plugin-multi-entry';
 
 const GLOBAL_STYLESHEETS = ['**/global.scss']
 
@@ -34,10 +32,6 @@ const PLUGINS_PER_ELEMENT = [
     minify: process.env.NODE_ENV === 'production',
     options: { loadPaths: ['node_modules'] },
     exclude: GLOBAL_STYLESHEETS
-  }),
-  sass({
-    output: 'dist/global.css',
-    include: GLOBAL_STYLESHEETS
   }),
   summary(),
 ]
