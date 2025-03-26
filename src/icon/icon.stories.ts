@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from "lit";
 
-import './icon'
+import {Icon} from './icon'
+
+Icon.addIconSet("it", "/assets/svg/sprites.svg")
 
 interface IconPros {
 
@@ -9,7 +11,7 @@ interface IconPros {
 
 const renderComponent = (params: any) => {
   return html`
-    <bsi-icon type='primary' name='android-square'></bsi-icon>
+    <bsi-icon type='primary' name='it-android-square'></bsi-icon>
   `
 }
 

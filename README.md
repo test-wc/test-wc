@@ -48,7 +48,7 @@ Each component has its own folder containing
 - `{component-name}.ts` component's definition and functionality
 - `{component-name}.scss` component's style.
 - `{component-name}.stories.ts` component's stories for Storybook documentation
-- `{component-name}.spec.ts` component's tests
+- `{component-name}.test.ts` component's tests
 
 ### SASS styling
 
