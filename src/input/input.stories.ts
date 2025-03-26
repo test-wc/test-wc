@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { html } from "lit";
 
 import './input'
 
@@ -7,7 +8,7 @@ interface InputPros {
 }
 
 const renderComponent = (params: any) => {
-  return `
+  return html`
     <bsi-input label="La mia label"></bsi-input>
   `
 }
