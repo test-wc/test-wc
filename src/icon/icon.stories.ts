@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { html } from "lit";
 
 import './icon'
 
@@ -7,8 +8,8 @@ interface IconPros {
 }
 
 const renderComponent = (params: any) => {
-  return `
-    <bsi-icon type='primary' name='android' />
+  return html`
+    <bsi-icon type='primary' name='android-square'></bsi-icon>
   `
 }
 

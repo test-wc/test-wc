@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
+import { html } from "lit";
 
 import './button'
 
@@ -10,11 +11,11 @@ interface ButtonPros {
 }
 
 const renderComponent = (params: any) => {
-  return `
+  return html`
     <bsi-button 
       variant="${params.variant}"
-      ${params.disabled ? 'disabled' : ''}
-      ${params.outline ? 'outline' : ''}
+      ?disabled="${params.disabled}"
+      ?outline="${params.outline}"
       >${params.slot}</bsi-button>
   `
 }
