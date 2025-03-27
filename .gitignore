@@ -68,3 +68,7 @@ __stories
 
 src/**/*.js
 src/**/*.map
+
+# Coverage
+
+coverage

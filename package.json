@@ -7,10 +7,10 @@
     "generate-icons": "node ./scripts/generate-icon-list.js",
     "dev": "concurrently -k -r \"npm run build:watch\" \"npm run docs:serve\"",
     "build:storybook": "storybook build",
-    "build:clean": "rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
+    "build:clean": "rm -rf coverage && rm -rf dist src/**/*.js src/**/*.js.map src/**/*.ts.map src/*.js src/*.js.map src/*.ts.map",
     "build:lib": "npm run build:clean && tsc && rollup -c",
     "build:watch": "concurrently -k -r \"tsc --watch\" \"rollup -c rollup.config.js --watch\"",
-    "test:lib": "web-test-runner --group default",
+    "test:lib": "npm run build:clean && web-test-runner --group default --node-resolve --coverage",
     "docs:clean": "rm -rf storybook-static",
     "docs:serve": "storybook dev -p 6006"
   },
