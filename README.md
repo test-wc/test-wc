@@ -19,9 +19,9 @@ This repository is a collection of Web Components based on [Bootstrap Italia](ht
 npm i
 ```
 
-### Serve the app
+### Serve the app in watch mode
 
-To serve the app
+To serve the app in watch mode run
 
 ```sh
 npm run dev
@@ -29,13 +29,33 @@ npm run dev
 
 ### Build
 
-To build the library
+To build the library run
 
 ```sh
-npm run build:lib
+npm run lib:build
 ```
 
-The final bundle will be compiled in the `dist` folder.
+The final bundled components will be compiled in the `dist` folder.
+
+### Testing
+
+To test the library run
+
+```sh
+npm run lib:test
+```
+
+### Build documentation
+
+To build entire documentation as a static site, run
+
+```sh
+npm run docs:build
+```
+
+## How to use this library
+
+TODO
 
 ## Structure of this repository
 
@@ -50,12 +70,19 @@ Each component has its own folder containing
 - `{component-name}.stories.ts` component's stories for Storybook documentation
 - `{component-name}.test.ts` component's tests
 
+We provide some utility classes for our components:
+
+- `TrackFocus` (`src/utils/track-focus.ts`): an utility class to track focus
+inside a custom element
+- `BaseComponent` (`src/base-component/base-component.ts`): base class for a 
+custom element containing common properties and utilities
+
+
 ### SASS styling
 
 Styling web components can be tricky because shadow DOM provides a strong 
 encapsulation of the styles. Despite some styles can pierce 
-shadow DOM ([Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)) we need to rethink the whole CSS 
-using `Custom CSS properties`.
+shadow DOM ([Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)) we need to rethink the whole CSS using `Custom CSS properties`.
 
 ## Motivation
 
@@ -69,9 +96,26 @@ Think of Web Components as the essential building blocks for web development. Th
 
 ## Sources
 
+### Design systems and web components
+
 - [Auro design system](https://auro.alaskaair.com/)
 - [State of California Design system](https://designsystem.webstandards.ca.gov/) - [GitHub](https://github.com/cagov/design-system)
+- [ING Bank design system](https://github.com/ing-bank/lion)
+- [Carbon design system](https://github.com/carbon-design-system/)
+- [Shoelace design system](https://github.com/shoelace-style/shoelace)
+- [Patternfly Elements](https://patternflyelements.org/)
+- [Momentum UI](https://github.com/momentum-design/momentum-ui/tree/main/web-components)
+- [Pharos DS](https://github.com/ithaka/pharos/tree/70f42ef0776d1b0ff0ea32ae6560deef92757d8d/packages/pharos/src/components)
+
+### Articles
+
 - [WC Adoption challenges 2024](https://uploadcare.com/blog/web-components-adoption-challenges/)
-- [Lit TS starter kit](https://github.com/lit/lit-element-starter-ts)
 - [Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)
 - [Where web components shine](https://daverupert.com/2024/10/super-web-components-sunshine)
+- [Web components icons](https://clayto.com/2019/web-component-icons/)
+
+### Libraries and code
+
+- [Lit TS starter kit](https://github.com/lit/lit-element-starter-ts)
+- [Break stuff starter kit](https://github.com/break-stuff/lit-starter-kit)
+- [React 19 new features](https://react.dev/blog/2024/12/05/react-19)
