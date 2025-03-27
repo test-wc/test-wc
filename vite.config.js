@@ -8,4 +8,9 @@ export default defineConfig({
         generateScopedName: "[local]"
       }
     },
+    resolve: {
+      alias: {
+          '@splidejs/splide/src/css/core/index' : 'node_modules/@splidejs/splide/src/css/core/index.scss',
+      },
+    },
 })
