@@ -38,7 +38,7 @@ const PLUGINS_PER_ELEMENT = [
 
 const ENTRY_FILES = [
 	{
-		input: 'src/button/button.js',
+		input: 'src/components/button/button.js',
 		output: {
 			file: 'dist/button.js',
 			format: 'esm'
@@ -46,7 +46,7 @@ const ENTRY_FILES = [
     plugins: PLUGINS_PER_ELEMENT
 	},
 	{
-		input: 'src/input/input.js',
+		input: 'src/components/input/input.js',
 		output: {
 			file: 'dist/input.js',
 			format: 'esm'
@@ -54,7 +54,7 @@ const ENTRY_FILES = [
     plugins: PLUGINS_PER_ELEMENT
 	},
 	{
-		input: 'src/icon/icon.js',
+		input: 'src/components/icon/icon.js',
 		output: {
 			file: 'dist/icon.js',
 			format: 'esm'

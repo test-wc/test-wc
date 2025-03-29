@@ -1,4 +1,4 @@
-import { BaseComponent } from "../base-component/base-component";
+import { BaseComponent } from "../../globals/base-component/base-component";
 import { html, PropertyValues } from "lit";
 import { customElement, property } from 'lit/decorators.js'
 import { ifDefined } from "lit/directives/if-defined.js";

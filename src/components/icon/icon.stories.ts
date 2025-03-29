@@ -17,7 +17,7 @@ const renderComponent = (params: any) => {
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: 'Example/Icon',
+  title: 'Components/Icon',
   tags: ['autodocs'],
   component: 'bsi-icon',
   render: (args) => renderComponent(args),

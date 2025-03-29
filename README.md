@@ -63,19 +63,26 @@ TODO
 
 The main code of this library lies in `src` folder. 
 
-Each component has its own folder containing 
+Each component has its own folder inside `src/components` folder containing 
 
 - `{component-name}.ts` component's definition and functionality
 - `{component-name}.scss` component's style.
 - `{component-name}.stories.ts` component's stories for Storybook documentation
 - `{component-name}.test.ts` component's tests
 
-We provide some utility classes for our components:
+Inside `globals` folder we provide some utility classes for our components:
 
-- `TrackFocus` (`src/utils/track-focus.ts`): an utility class to track focus
+- `TrackFocus` (`src/globals/utils/track-focus.ts`): an utility class to track focus
 inside a custom element
-- `BaseComponent` (`src/base-component/base-component.ts`): base class for a 
+- `BaseComponent` (`src/globals/base-component/base-component.ts`): base class for a 
 custom element containing common properties and utilities
+
+Inside `globals/mixin` folder there are some mixins
+
+- `FormMixin` (`src/globals/mixins/form.ts`): mixin for component partecipating
+to forms.
+- `ValidityMixin` (`src/globals/mixins/validity.ts`): mixin to deal with fields
+validation.
 
 
 ### SASS styling

@@ -1,18 +1,30 @@
-import { BaseComponent } from "../base-component/base-component";
+import { BaseComponent } from "../../globals/base-component/base-component";
+import FormMixin from "../../globals/mixins/form"
+import ValidityMixin from "../../globals/mixins/validity"
+
 import { html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
 import styles from "./input.scss?inline";
+import { ifDefined } from "lit/directives/if-defined";
 
 @customElement('bsi-input')
-export class Input extends BaseComponent(styles) {
+export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
+  
+  @property({ type: Boolean, reflect: true })
+  invalid = false;
+
+  @property({ type: Boolean, reflect: true })
+  required = false;
+
+  @property({ attribute: 'required-validity-message' })
+  requiredValidityMessage: string = 'Please fill out this field';
+
+  @property({ attribute: 'validity-message' })
+  validityMessage: string = '';
   
   @query('input')
   protected _inputElement!: HTMLInputElement;
-
-  // static get formAssociated() {
-  //   return true;
-  // }
 
   @property({ type: String })
   label = '';
@@ -20,13 +32,13 @@ export class Input extends BaseComponent(styles) {
   @property({ type: String })
   type = 'text';
 
-  protected _value = '';
-
   @property({ type: String })
   name = '';
 
-  // @property({ type: ElementInternals })
-  // internals = this.attachInternals()
+  @property({ type: Boolean })
+  disabled = false
+
+  protected _value = '';
 
   @property({ reflect: true })
   get value() {
@@ -51,55 +63,20 @@ export class Input extends BaseComponent(styles) {
     }
   }
 
-  _handleFormData(event: FormDataEvent) {
-    // Add our name and value to the form's submission 
-    // data if we're not disabled.
-    const { formData } = event;
-    formData.append(this.name, this._value);
-  }
-
-
-  // updated(_changedProperties: PropertyValues) {
-  //   if (_changedProperties.has("value")) {
-  //     this.internals.setFormValue(this.name, this.value);
-  //     this.notifyValueChanged();
-
-  //     // if (this.value !== this._inputElement.value) {
-  //     //   if (this.value) {
-  //     //     this._inputElement.value = this.value;
-  //     //   } else {
-  //     //     this._inputElement.value = "";
-  //     //   }
-  //     // }
-  //   }
-  // }
-
-  // notifyValueChanged() {
-  //   let inputEvent = null;
-  //   inputEvent = new Event("input", {
-  //     bubbles: true,
-  //     composed: true,
-  //   });
-
-  //   // Dispatched event to alert outside shadow DOM context of event firing.
-  //   this.dispatchEvent(inputEvent);
-  // }
-
-  override connectedCallback() {
-    super.connectedCallback();
-    if (this.closest('form')) {
-      this.closest('form')?.addEventListener('formdata', this._handleFormData.bind(this));
+  _handleFormdata(event: FormDataEvent) {
+    // Add name and value to the form's submission data if it's not disabled.
+    if (!this.disabled) {
+      const { formData } = event;
+      formData.append(this.name, this._value);
     }
   }
 
   override firstUpdated() {
     this.addFocus(this._inputElement)
-    // this.internals.setFormValue("a default value");
   }
 
   handleInput(event: any) {
     this.value = event.target.value
-    // this.internals.setFormValue(event.target.value);
   }
 
   // Render the UI as a function of component state
@@ -111,6 +88,7 @@ export class Input extends BaseComponent(styles) {
           .type="${this.type}"
           id="${this.id || undefined}"
           name="${this.name}"
+          disabled=${ifDefined(this.disabled || undefined)}
           .value="${this._value}" 
         />
       </div>
