@@ -120,6 +120,7 @@ Think of Web Components as the essential building blocks for web development. Th
 - [Styles Piercing Shadow DOM](https://open-wc.org/guides/knowledge/styling/styles-piercing-shadow-dom/)
 - [Where web components shine](https://daverupert.com/2024/10/super-web-components-sunshine)
 - [Web components icons](https://clayto.com/2019/web-component-icons/)
+- [How to Handle Cross-Browser Compatibility with Web Components](https://blog.pixelfreestudio.com/how-to-handle-cross-browser-compatibility-with-web-components/)
 
 ### Libraries and code
 
