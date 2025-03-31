@@ -6,7 +6,7 @@ import { html } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
 
 import styles from "./input.scss?inline";
-import { ifDefined } from "lit/directives/if-defined";
+import { ifDefined } from "lit/directives/if-defined.js";
 
 @customElement('bsi-input')
 export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
