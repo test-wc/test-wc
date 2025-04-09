@@ -26,10 +26,13 @@ const PLUGINS_PER_ELEMENT = [
         regex: /^__/,
       },
     },
+    output: {
+      comments: false,
+    },
   }),
   litScss({
     include: ['**/*.scss'],
-    minify: process.env.NODE_ENV === 'production',
+    minify: { fast: true },
     options: { loadPaths: ['node_modules'] },
     exclude: GLOBAL_STYLESHEETS
   }),
