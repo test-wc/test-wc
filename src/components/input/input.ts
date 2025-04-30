@@ -1,16 +1,15 @@
-import { BaseComponent } from "../../globals/base-component/base-component";
-import FormMixin from "../../globals/mixins/form"
-import ValidityMixin from "../../globals/mixins/validity"
+import { BaseComponent } from '../../globals/base-component/base-component';
+import FormMixin from '../../globals/mixins/form';
+import ValidityMixin from '../../globals/mixins/validity';
 
-import { html } from "lit";
-import { customElement, property, query } from "lit/decorators.js";
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 
-import styles from "./input.scss?inline";
-import { ifDefined } from "lit/directives/if-defined.js";
+import styles from './input.scss?inline';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 @customElement('bsi-input')
 export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
-  
   @property({ type: Boolean, reflect: true })
   invalid = false;
 
@@ -22,7 +21,7 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
 
   @property({ attribute: 'validity-message' })
   validityMessage: string = '';
-  
+
   @query('input')
   protected _inputElement!: HTMLInputElement;
 
@@ -36,7 +35,7 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
   name = '';
 
   @property({ type: Boolean })
-  disabled = false
+  disabled = false;
 
   protected _value = '';
 
@@ -62,35 +61,41 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
       this._inputElement.value = value;
     }
   }
-
-  _handleFormdata(event: FormDataEvent) {
-    // Add name and value to the form's submission data if it's not disabled.
-    if (!this.disabled) {
-      const { formData } = event;
-      formData.append(this.name, this._value);
-    }
+  override createRenderRoot() {
+    return this;
   }
 
+  // _handleFormdata(event: FormDataEvent) {
+  //   // Add name and value to the form's submission data if it's not disabled.
+  //   if (!this.disabled) {
+  //     const { formData } = event;
+  //     formData.append(this.name, this._value);
+  //   }
+  // }
+
   override firstUpdated() {
-    this.addFocus(this._inputElement)
+    this.addFocus(this._inputElement);
   }
 
   handleInput(event: any) {
-    this.value = event.target.value
+    this.value = event.target.value;
   }
 
   // Render the UI as a function of component state
   override render() {
     return html`
       <div class="form-group">
-        <label class="active" for="${ifDefined(this.id || undefined)}">${this.label}</label>
+        <label class="active" for="${ifDefined(this.id || undefined)}"
+          >${this.label}</label
+        >
         <input
           @input="${this.handleInput}"
           .type="${this.type}"
           id="${ifDefined(this.id || undefined)}"
           name="${this.name}"
           disabled=${ifDefined(this.disabled || undefined)}
-          .value="${this._value}" 
+          .value="${this._value}"
+          required="${this.required}"
         />
       </div>
     `;
@@ -99,6 +104,6 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'bsi-input': Input
+    'bsi-input': Input;
   }
 }

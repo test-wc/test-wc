@@ -1,4 +1,4 @@
-import { html, css, PropertyValues } from 'lit';
+import { html, PropertyValues } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { BaseComponent } from '../../globals/base-component/base-component';
@@ -12,13 +12,15 @@ export class Button extends BaseComponent(styles) {
   }
 
   @property({ type: String }) private _buttonClasses = '';
-  @property({ type: Boolean }) private unresolved = true;
+
+  // @property({ type: Boolean }) private unresolved = true;
   @property({ type: String }) type = 'button';
   @property({ type: String }) label = '';
   @property({ type: String }) variant = '';
   @property({ type: Boolean }) outline = false;
   @property({ type: Boolean }) disabled = false;
   @property({ type: String }) value = '';
+  @property({ type: String }) icon = '';
 
   @property({ type: ElementInternals })
   internals = this.attachInternals();
@@ -33,6 +35,10 @@ export class Button extends BaseComponent(styles) {
   override connectedCallback(): void {
     super.connectedCallback();
     this.removeAttribute('unresolved');
+  }
+
+  override createRenderRoot() {
+    return this;
   }
 
   override updated(): void {
@@ -56,47 +62,15 @@ export class Button extends BaseComponent(styles) {
     return this.internals?.form ?? null;
   }
 
-  static override styles = [
-    styles,
-    // styles,
-    // Fallback visibile solo se `unresolved`
-    css`
-      ::slotted([data-fallback='true']) {
-        display: none;
-      }
-      :host([unresolved]) ::slotted([data-fallback='true']) {
-        display: inline-block;
-      }
-
-      :host([unresolved]) ::slotted([slot='prefix']),
-      :host([unresolved]) ::slotted([slot='suffix']) {
-        display: none;
-      }
-    `,
-  ];
-
   override render() {
     return html`
-      <style>
-        ::slotted([data-fallback='true']) {
-          display: none;
-        }
-        :host([unresolved]) ::slotted([data-fallback='true']) {
-          display: inline-block;
-        }
-
-        :host([unresolved]) ::slotted([slot='prefix']),
-        :host([unresolved]) ::slotted([slot='suffix']) {
-          display: none;
-        }
-      </style>
       <button
         type=${this.type}
         class=${this._buttonClasses}
         ?disabled=${this.disabled}
         .value=${ifDefined(this.value || undefined)}
         @click=${this.type === 'submit' ? this.surfaceSubmitEvent : undefined}
-        unresolved=${this.unresolved}
+        aria-label=${this.label}
       >
         <slot name="prefix"></slot>
         <span>${this.label}</span>
