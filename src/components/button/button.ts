@@ -34,7 +34,7 @@ export class Button extends BaseComponent(styles) {
 
   override connectedCallback(): void {
     super.connectedCallback();
-    this.removeAttribute('unresolved');
+    this.setAttribute('data-resolved', '');
   }
 
   override createRenderRoot() {
@@ -46,7 +46,7 @@ export class Button extends BaseComponent(styles) {
       'btn',
       this.outline ? '' : this.variant ? `btn-${this.variant}` : '',
       this.outline ? `btn-outline-${this.variant}` : '',
-      this.disabled ? 'disabled' : ''
+      this.disabled ? 'disabled' : '',
     );
   }
 
