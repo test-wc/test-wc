@@ -34,11 +34,7 @@ export class Button extends BaseComponent(styles) {
 
   override connectedCallback(): void {
     super.connectedCallback();
-<<<<<<< Updated upstream
     this.setAttribute('data-resolved', '');
-=======
-    this.setAttribute('data-resolved', 'true');
->>>>>>> Stashed changes
   }
 
   override createRenderRoot() {

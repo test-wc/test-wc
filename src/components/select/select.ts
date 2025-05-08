@@ -87,7 +87,7 @@ export class FormSelect extends ValidityMixin(
     return html`${option.options.map(
       (o) => html`<option value="${o}" ?selected="${o === this.selectedValue}">
         ${o}
-      </option>`
+      </option>`,
     )}`;
   };
 
@@ -97,7 +97,7 @@ export class FormSelect extends ValidityMixin(
         <div class="select-wrapper">
           ${this.label
             ? html`<label class="active" for="${ifDefined(
-                this.id || undefined
+                this.id || undefined,
               )}>${this.label}</label>`
             : ''}
           <select

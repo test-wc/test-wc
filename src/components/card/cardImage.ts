@@ -1,6 +1,5 @@
-import { html, PropertyValues } from 'lit';
+import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { BaseComponent } from '../../globals/base-component/base-component';
 
 import styles from './card.scss?inline';
