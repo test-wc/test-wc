@@ -37,9 +37,33 @@ const PLUGINS_PER_ELEMENT = [
 
 const ENTRY_FILES = [
   {
-    input: 'src/components/button/button.js',
+    input: 'src/components/card/card.js',
     output: {
-      file: 'dist/button.js',
+      file: 'dist/card.js',
+      format: 'esm',
+    },
+    plugins: PLUGINS_PER_ELEMENT,
+  },
+  {
+    input: 'src/components/card/cardImage.js',
+    output: {
+      file: 'dist/cardImage.js',
+      format: 'esm',
+    },
+    plugins: PLUGINS_PER_ELEMENT,
+  },
+  {
+    input: 'src/components/card/cardCalendar.js',
+    output: {
+      file: 'dist/cardCalendar.js',
+      format: 'esm',
+    },
+    plugins: PLUGINS_PER_ELEMENT,
+  },
+  {
+    input: 'src/components/button-sd/button.js',
+    output: {
+      file: 'dist/button-sd.js',
       format: 'esm',
     },
     plugins: PLUGINS_PER_ELEMENT,

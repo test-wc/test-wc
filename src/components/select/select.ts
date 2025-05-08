@@ -5,6 +5,7 @@ import { BaseComponent } from '../../globals/base-component/base-component';
 import FormMixin from '../../globals/mixins/form';
 import ValidityMixin from '../../globals/mixins/validity';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import styles from './select.scss?inline';
 type Option = string;
 type GroupedOption = { groupName: string; options: Option[] };
 type SelectOption = Option | GroupedOption;
@@ -13,7 +14,9 @@ function isGroupedOption(obj: SelectOption): obj is GroupedOption {
   return typeof obj !== 'string';
 }
 @customElement('bsi-select')
-export class FormSelect extends ValidityMixin(FormMixin(BaseComponent(null))) {
+export class FormSelect extends ValidityMixin(
+  FormMixin(BaseComponent(styles))
+) {
   @property({ type: Array }) options: SelectOption[] = [];
   @property({ type: String }) label: string = '';
   @property({ type: String }) selectedValue: string = '';
@@ -58,20 +61,17 @@ export class FormSelect extends ValidityMixin(FormMixin(BaseComponent(null))) {
     }
   }
 
-  //   _handleFormdata(event: FormDataEvent) {
-  //     // Add name and value to the form's submission data if it's not disabled.
-  //     if (!this.disabled) {
-  //       const { formData } = event;
-  //       formData.append(this.name, this._value);
-  //     }
-  //   }
-  override createRenderRoot() {
-    return this;
+  _handleFormdata(event: FormDataEvent) {
+    // Add name and value to the form's submission data if it's not disabled.
+    if (!this.disabled) {
+      const { formData } = event;
+      formData.append(this.name, this._value);
+    }
   }
 
   override connectedCallback() {
     super.connectedCallback();
-    this.addEventListener('change', this._onChange);
+    // this.addEventListener('change', this._onChange);
     this.addEventListener('blur', () => this.checkValidity(), true);
   }
 
@@ -104,7 +104,9 @@ export class FormSelect extends ValidityMixin(FormMixin(BaseComponent(null))) {
             id="${ifDefined(this.id || undefined)}"
             name="${this.name}"
             required=${this.required}
+            @input="${this._onChange}"
           >
+            >
             <option value="" disabled selected>${this.placeholder}</option>
             ${this.options.map((option) => {
               if (isGroupedOption(option)) {

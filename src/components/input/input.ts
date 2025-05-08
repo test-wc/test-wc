@@ -61,17 +61,14 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
       this._inputElement.value = value;
     }
   }
-  override createRenderRoot() {
-    return this;
-  }
 
-  // _handleFormdata(event: FormDataEvent) {
-  //   // Add name and value to the form's submission data if it's not disabled.
-  //   if (!this.disabled) {
-  //     const { formData } = event;
-  //     formData.append(this.name, this._value);
-  //   }
-  // }
+  _handleFormdata(event: FormDataEvent) {
+    // Add name and value to the form's submission data if it's not disabled.
+    if (!this.disabled) {
+      const { formData } = event;
+      formData.append(this.name, this._value);
+    }
+  }
 
   override firstUpdated() {
     this.addFocus(this._inputElement);

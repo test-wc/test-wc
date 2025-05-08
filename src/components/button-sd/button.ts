@@ -5,7 +5,7 @@ import { BaseComponent } from '../../globals/base-component/base-component';
 
 import styles from './button.scss?inline';
 
-@customElement('bsi-button')
+@customElement('bsi-button-sd')
 export class Button extends BaseComponent(styles) {
   static get formAssociated() {
     return true;
@@ -13,7 +13,6 @@ export class Button extends BaseComponent(styles) {
 
   @property({ type: String }) private _buttonClasses = '';
 
-  // @property({ type: Boolean }) private unresolved = true;
   @property({ type: String }) type = 'button';
   @property({ type: String }) label = '';
   @property({ type: String }) variant = '';
@@ -34,15 +33,6 @@ export class Button extends BaseComponent(styles) {
 
   override connectedCallback(): void {
     super.connectedCallback();
-<<<<<<< Updated upstream
-    this.setAttribute('data-resolved', '');
-=======
-    this.setAttribute('data-resolved', 'true');
->>>>>>> Stashed changes
-  }
-
-  override createRenderRoot() {
-    return this;
   }
 
   override updated(): void {
@@ -50,8 +40,9 @@ export class Button extends BaseComponent(styles) {
       'btn',
       this.outline ? '' : this.variant ? `btn-${this.variant}` : '',
       this.outline ? `btn-outline-${this.variant}` : '',
-      this.disabled ? 'disabled' : '',
+      this.disabled ? 'disabled' : ''
     );
+    this.setAttribute('data-resolved', 'true');
   }
 
   surfaceSubmitEvent(event: Event): void {
@@ -87,6 +78,6 @@ export class Button extends BaseComponent(styles) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'bsi-button': Button;
+    'bsi-button-sd': Button;
   }
 }
