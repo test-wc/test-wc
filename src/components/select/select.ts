@@ -14,9 +14,7 @@ function isGroupedOption(obj: SelectOption): obj is GroupedOption {
   return typeof obj !== 'string';
 }
 @customElement('bsi-select')
-export class FormSelect extends ValidityMixin(
-  FormMixin(BaseComponent(styles))
-) {
+export class FormSelect extends ValidityMixin(FormMixin(BaseComponent(styles))) {
   @property({ type: Array }) options: SelectOption[] = [];
   @property({ type: String }) label: string = '';
   @property({ type: String }) selectedValue: string = '';
@@ -84,42 +82,21 @@ export class FormSelect extends ValidityMixin(
     select.classList.toggle('is-valid', !this.invalid);
   };
   _renderGroupedOptions = (option: GroupedOption) => {
-    return html`${option.options.map(
-      (o) => html`<option value="${o}" ?selected="${o === this.selectedValue}">
-        ${o}
-      </option>`,
-    )}`;
+    return html`${option.options.map((o) => html`<option value="${o}" ?selected="${o === this.selectedValue}">${o}</option>`)}`;
   };
 
   override render() {
     return html`
       <div class="form-group">
         <div class="select-wrapper">
-          ${this.label
-            ? html`<label class="active" for="${ifDefined(
-                this.id || undefined,
-              )}>${this.label}</label>`
-            : ''}
-          <select
-            id="${ifDefined(this.id || undefined)}"
-            name="${this.name}"
-            required=${this.required}
-            @input="${this._onChange}"
-          >
+          ${this.label ? html`<label class="active" for="${ifDefined(this.id || undefined)}>${this.label}</label>` : ''}
+          <select id="${ifDefined(this.id || undefined)}" name="${this.name}" required=${this.required} @input="${this._onChange}">
             >
             <option value="" disabled selected>${this.placeholder}</option>
             ${this.options.map((option) => {
               if (isGroupedOption(option)) {
-                return html`<optgroup label="${option.groupName}">
-                  ${this._renderGroupedOptions(option)}
-                </optgroup>`;
-              } else
-                return html`<option
-                  value="${option}"
-                  ?selected="${option === this.selectedValue}"
-                >
-                  ${option}
-                </option>`;
+                return html`<optgroup label="${option.groupName}">${this._renderGroupedOptions(option)}</optgroup>`;
+              } else return html`<option value="${option}" ?selected="${option === this.selectedValue}">${option}</option>`;
             })}
           </select>
         </div>

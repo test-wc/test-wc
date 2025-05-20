@@ -23,24 +23,15 @@ export class Card extends BaseComponent(styles) {
           ${html`<slot name="image"
             >${ifDefined(this.imageSrc || nothing)
               ? html`
-                  <bsi-card-image
-                    .src=${this.imageSrc}
-                    .alt=${ifDefined(this.imageAlt || 'Immagine')}
-                  >
-                    ${this.date
-                      ? html`<bsi-card-calendar
-                          .date=${this.date}
-                        ></bsi-card-calendar>`
-                      : nothing}
+                  <bsi-card-image .src=${this.imageSrc} .alt=${ifDefined(this.imageAlt || 'Immagine')}>
+                    ${this.date ? html`<bsi-card-calendar .date=${this.date}></bsi-card-calendar>` : nothing}
                   </bsi-card-image>
                 `
               : nothing}</slot
           >`}
 
           <div class="card-body">
-            <slot name="card-title"
-              ><h3 class="card-title h5">${this.title}</h3></slot
-            >
+            <slot name="card-title"><h3 class="card-title h5">${this.title}</h3></slot>
             <slot name="card-body"></slot>
             <slot name="card-link"
               >${ifDefined(this.link || nothing)

@@ -1,3 +1,3 @@
-declare module "*.scss?inline";
+declare module '*.scss?inline';
 
 type Constructor<T = {}> = new (...args: any[]) => T;

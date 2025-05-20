@@ -24,13 +24,10 @@ const FormMixin = <TBase extends Constructor<HTMLElement>>(Base: TBase) => {
     abstract _handleFormdata(event: Event): void;
 
     connectedCallback() {
-      // @ts-ignore
+      // @ts-expect-error
       super.connectedCallback();
       if (this.closest('form')) {
-        this.closest('form')?.addEventListener(
-          'formdata',
-          this._handleFormdata.bind(this)
-        );
+        this.closest('form')?.addEventListener('formdata', this._handleFormdata.bind(this));
       }
     }
 
@@ -38,7 +35,7 @@ const FormMixin = <TBase extends Constructor<HTMLElement>>(Base: TBase) => {
       // if (this._hFormdata) {
       //   this._hFormdata = this._hFormdata.release();
       // }
-      // @ts-ignore
+      // @ts-expect-error
       super.disconnectedCallback();
     }
   }

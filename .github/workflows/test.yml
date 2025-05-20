@@ -1,0 +1,31 @@
+name: Code testing & coverage
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    concurrency: ci-test-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js with cache
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Test
+        run: npm run lib:test
+
+      # - name: Upload coverage
+      #   uses: codecov/codecov-action@v2
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     flags: unittests

@@ -82,9 +82,7 @@ export class Input extends ValidityMixin(FormMixin(BaseComponent(styles))) {
   override render() {
     return html`
       <div class="form-group">
-        <label class="active" for="${ifDefined(this.id || undefined)}"
-          >${this.label}</label
-        >
+        <label class="active" for="${ifDefined(this.id || undefined)}">${this.label}</label>
         <input
           @input="${this.handleInput}"
           .type="${this.type}"

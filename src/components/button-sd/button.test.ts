@@ -5,9 +5,7 @@ import { Button } from './button.js';
 describe('Button component', () => {
   describe('accessibility', () => {
     it('default is accessible', async () => {
-      const el = await fixture<Button>(
-        html`<bsi-button-sd>My Button</bsi-button-sd>`
-      );
+      const el = await fixture<Button>(html`<bsi-button-sd>My Button</bsi-button-sd>`);
       await expect(el).to.be.accessible();
     });
 
@@ -21,9 +19,7 @@ describe('Button component', () => {
     });
 
     it('disabled is accessible', async () => {
-      const el = await fixture<Button>(
-        html`<bsi-button-sd disabled>bsi Button</bsi-button-sd>`
-      );
+      const el = await fixture<Button>(html`<bsi-button-sd disabled>bsi Button</bsi-button-sd>`);
       const button = el.shadowRoot?.querySelector('button');
 
       await expect(el).to.be.accessible();

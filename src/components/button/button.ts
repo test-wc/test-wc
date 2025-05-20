@@ -46,7 +46,7 @@ export class Button extends BaseComponent(styles) {
       'btn',
       this.outline ? '' : this.variant ? `btn-${this.variant}` : '',
       this.outline ? `btn-outline-${this.variant}` : '',
-      this.disabled ? 'disabled' : '',
+      this.disabled ? 'disabled' : ''
     );
   }
 
