@@ -3,8 +3,6 @@
 @import 'bootstrap-italia/src/scss/base/mixins';
 @import 'bootstrap-italia/src/scss/utilities/focus';
 
-@import 'bootstrap-italia/src/scss/components/buttons';
-
-bsi-button:not(:defined) [slot='*'] {
-  display: none;
-}
+@import 'bootstrap-italia/src/scss/components/card';
+@import 'bootstrap-italia/src/scss/components/imgresponsive';
+@import 'bootstrap-italia/src/scss/base/_reboot.scss';

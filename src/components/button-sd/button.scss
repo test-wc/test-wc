@@ -4,7 +4,3 @@
 @import 'bootstrap-italia/src/scss/utilities/focus';
 
 @import 'bootstrap-italia/src/scss/components/buttons';
-
-bsi-button:not(:defined) [slot='*'] {
-  display: none;
-}

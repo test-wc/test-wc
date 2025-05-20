@@ -2,6 +2,10 @@
   "name": "test-wc",
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "assets",
+    "dist"
+  ],
   "scripts": {
     "dev": "concurrently -k -r \"npm run lib:watch\" \"npm run docs:serve\"",
     "lib:prepare": "recursive-copy -w ./node_modules/bootstrap-italia/src/svg/ ./assets/svg/ && recursive-copy -w ./node_modules/bootstrap-italia/dist/fonts/ ./assets/fonts/",
